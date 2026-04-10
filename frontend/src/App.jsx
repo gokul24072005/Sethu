@@ -38,6 +38,14 @@ function App() {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
+    // Keep reload behavior consistent so sticky header does not appear offset after refresh.
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const handlePopState = () => {
       setCurrentPath(normalizePath(window.location.pathname));
       window.scrollTo({ top: 0, behavior: 'smooth' });

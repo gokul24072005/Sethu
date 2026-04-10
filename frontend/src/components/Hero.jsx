@@ -62,14 +62,14 @@ function Hero() {
                   <span />
                   <span />
                 </div>
-                <div className="hero-browser-address">https://nova-cloud.io</div>
+                <div className="hero-browser-address">https://izone.in</div>
               </div>
 
               <div className="hero-browser-viewport">
                 <div className="hero-browser-scroll-track">
                   <div className="hero-browser-scroll-content">
                     <header className="hero-showcase-nav">
-                      <p className="hero-showcase-brand">NovaCloud</p>
+                      <p className="hero-showcase-brand">Izone technology</p>
                       <nav>
                         {showcaseLinks.map((link) => (
                           <span key={link}>{link}</span>

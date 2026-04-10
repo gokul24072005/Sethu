@@ -148,7 +148,8 @@ body::before {
   border: 1px solid rgba(192, 232, 236, 0.56);
   box-shadow: 0 30px 56px rgba(14, 73, 95, 0.28);
   background-size: 150% 150%, 120% 120%;
-  animation: fadeUp 0.55s ease both, heroGlow 4.8s ease-in-out infinite, heroSurfaceShift 12s ease-in-out infinite;
+  animation: heroSlideInLeft 0.78s cubic-bezier(0.2, 0.88, 0.25, 1) both, heroGlow 4.8s ease-in-out infinite, heroSurfaceShift 12s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 .hero-content h1,
@@ -231,6 +232,12 @@ body::before {
               inset 0 1px 0 rgba(255, 255, 255, 0.8),
               0 0 30px rgba(18, 140, 154, 0.12);
   transform: translateY(-6px);
+}
+
+.hero-card {
+  animation: heroCardsRise 0.95s cubic-bezier(0.2, 0.9, 0.25, 1) both;
+  animation-delay: var(--delay, 0s);
+  will-change: transform, opacity;
 }
 
 .hero-card h3,
@@ -830,6 +837,20 @@ body::before {
   }
 }
 
+@keyframes heroSlideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-74px) scale(0.985);
+    filter: blur(2px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+  }
+}
+
 @keyframes gridMove {
   from {
     background-position: 0 0, 0 0;
@@ -883,6 +904,20 @@ body::before {
   }
   50% {
     box-shadow: 0 0 0 5px rgba(15, 143, 154, 0.12);
+  }
+}
+
+@keyframes heroCardsRise {
+  from {
+    opacity: 0;
+    transform: translateY(42px) scale(0.985);
+    filter: blur(2px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
   }
 }
 
@@ -1221,6 +1256,7 @@ body::before {
   .page-transition-layer,
   .motion-reveal,
   .motion-reveal.in-view,
+  .hero-card,
   .hero-browser-window,
   .hero-browser-scroll-content,
   .hero-showcase-cursor {
