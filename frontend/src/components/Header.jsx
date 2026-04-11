@@ -73,7 +73,7 @@ function Header({ currentPath = '/' }) {
       <div className="nav-wrap">
         <div className="container nav-content">
           <a href="/" className="brand">
-            <img src="/izone_logo.png" alt="IZone Technology" className="logo-image" />
+            <img src="/pics/izone_logo1.png" alt="IZone Technology" className="logo-image" />
           </a>
           <nav className="primary-nav">
             {directLinks.slice(0, 2).map((item) => (
