@@ -56,7 +56,7 @@ function Services() {
             <article key={service.title} className="service-card" style={{ '--delay': `${index * 0.07}s` }}>
               <div className="service-icon">{service.icon}</div>
               <h3>{service.title}</h3>
-              <p>{service.description}</p>
+              <p className="service-description">{service.description}</p>
               <a href={service.href} className="service-link">
                 View Details
               </a>
