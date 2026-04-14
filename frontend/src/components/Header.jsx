@@ -1,6 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import logo from '../assets/izone_logo2.png';
 
 function Header({ currentPath = '/' }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const developmentMenuRef = useRef(null);
   const marketingMenuRef = useRef(null);
 
@@ -73,9 +75,16 @@ function Header({ currentPath = '/' }) {
       <div className="nav-wrap">
         <div className="container nav-content">
           <a href="/" className="brand">
-            <img src="/pics/izone_logo1.png" alt="IZone Technology" className="logo-image" />
+            <img src={logo} alt="IZone Technology" className="logo-image" />
           </a>
-          <nav className="primary-nav">
+          <button 
+            className="mobile-menu-toggle" 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation"
+          >
+            ☰
+          </button>
+          <nav className={`primary-nav ${mobileMenuOpen ? 'mobile-open' : ''}`}>
             {directLinks.slice(0, 2).map((item) => (
               <a key={item.href} href={item.href} className={isActive(item.href) ? 'active' : ''}>
                 {item.label}

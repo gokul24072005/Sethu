@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { apiFetch } from '../api'; // Your fetch wrapper
 import ImagePlaceholder from './ImagePlaceholder';
 
@@ -183,7 +184,7 @@ function Career() {
         </div>
       </div>
 
-      {isModalOpen && (
+      {isModalOpen && createPortal(
         <div
           className="career-modal-overlay"
           onClick={(event) => {
@@ -220,7 +221,8 @@ function Career() {
               {status.text && <p className={`form-status${status.isError ? ' form-status-error' : ''}`}>{status.text}</p>}
             </form>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );

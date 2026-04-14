@@ -101,7 +101,7 @@ def _normalize_pdf_filename(filename: str | None) -> str:
     return base_name
 
 
-def send_career_notification(career: Any) -> None:
+def send_career_notification(career: Any, resume_bytes: bytes | None = None) -> None:
     """
     Send email notification for a career application.
     """
@@ -144,7 +144,7 @@ def send_career_notification(career: Any) -> None:
         )
     )
 
-    resume_data = getattr(career, "resume_data", None)
+    resume_data = resume_bytes or getattr(career, "resume_data", None)
     if isinstance(resume_data, memoryview):
         resume_data = resume_data.tobytes()
 

@@ -44,9 +44,10 @@ def _append_career_record_safe(
         logger.warning("Career saved but Excel write failed: %s", exc)
 
 
-def _send_career_notification_safe(career_payload: schemas.CareerCreate) -> None:
+def _send_career_notification_safe(career_payload: schemas.CareerCreate, resume_bytes: bytes) -> None:
     try:
-        send_career_notification(career_payload)
+        setattr(career_payload, "resume_data", resume_bytes)
+        send_career_notification(career_payload, resume_bytes=resume_bytes)
     except Exception as exc:
         logger.warning("Career saved but email delivery failed: %s", exc)
 
@@ -154,7 +155,7 @@ def create_career_application(
         db_career.position,
         db_career.resume_url or "",
     )
-    background_tasks.add_task(_send_career_notification_safe, career_task_payload)
+    background_tasks.add_task(_send_career_notification_safe, career_task_payload, resume_bytes)
     background_tasks.add_task(_send_candidate_acknowledgement_safe, career_task_payload)
 
     return db_career
