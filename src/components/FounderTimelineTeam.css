@@ -1,0 +1,519 @@
+/* FounderTimelineTeam.css */
+
+.founder-timeline-team-wrapper {
+  background-color: var(--mono-bg);
+  /* Light glassy background */
+  padding: 4rem 0;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+}
+
+.green-section-label {
+  color: rgb(26, 163, 151);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.section-header-center {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header-center h2 {
+  font-size: 2.2rem;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+/* Founder Spotlight */
+.founder-spotlight-section {
+  margin-bottom: 5rem;
+}
+
+.founder-card {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.founder-card-offset {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: 15px;
+  bottom: 15px;
+  border: 1.5px dashed var(--mono-line-soft);
+  border-radius: 12px;
+  z-index: 0;
+  transition: all 0.5s ease;
+}
+
+.founder-card:hover .founder-card-offset {
+  transform: translate(8px, 8px);
+  border-color: rgba(26, 163, 151, 0.6);
+  background: rgba(26, 163, 151, 0.02);
+}
+
+.founder-card-content {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  padding: 3rem;
+  display: flex;
+  gap: 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.founder-image-col {
+  flex: 0 0 280px;
+}
+
+.founder-image-box {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #111;
+}
+
+.founder-image-box img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  display: block;
+}
+
+.founder-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgb(26, 163, 151);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  animation: badgeFloat 3s ease-in-out infinite;
+}
+
+.founder-text-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.founder-pill {
+  display: inline-block;
+  background: var(--mono-paper-2);
+  color: rgb(26, 163, 151);
+  border: 1px solid var(--mono-line-soft);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  align-self: flex-start;
+  margin-bottom: 1rem;
+}
+
+.founder-name {
+  color: var(--mono-ink);
+  font-size: 2rem;
+  margin: 0 0 0.4rem;
+}
+
+.founder-title {
+  color: #555;
+  font-size: 1rem;
+  margin: 0 0 1.5rem;
+}
+
+.founder-bio {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.founder-metrics {
+  display: flex;
+  gap: 2rem;
+}
+
+.metric strong {
+  display: block;
+  font-size: 1.25rem;
+  color: rgb(26, 163, 151);
+  margin-bottom: 0.2rem;
+}
+
+.metric span {
+  font-size: 0.75rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Team Grid */
+.team-grid-section {
+  margin-bottom: 5rem;
+}
+
+.team-icon-wrapper {
+  margin-bottom: 1rem;
+}
+
+.team-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: var(--mono-paper-2);
+  border-radius: 50%;
+  font-size: 1.8rem;
+  border: 3px solid var(--mono-paper);
+  box-shadow: 0 4px 15px rgba(26, 163, 151, 0.15);
+}
+
+.team-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.team-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(26, 163, 151, 0.15);
+  border-color: rgba(26, 163, 151, 0.3);
+}
+
+.team-card:hover .team-avatar {
+  transform: scale(1.15) rotate(10deg);
+  background: #158a80;
+  box-shadow: 0 4px 12px rgba(26, 163, 151, 0.4);
+}
+
+.team-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.team-avatar {
+  background: rgb(26, 163, 151);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.team-name-title h4 {
+  margin: 0 0 0.2rem;
+  font-size: 1rem;
+  color: #1a1a1a;
+}
+
+.team-name-title span {
+  font-size: 0.8rem;
+  color: rgb(26, 163, 151);
+  font-weight: 600;
+}
+
+.team-desc {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Timeline */
+.timeline-section {
+  padding-bottom: 4rem;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--mono-line-soft);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 0 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 24px;
+  width: 14px;
+  height: 14px;
+  background: rgb(26, 163, 151);
+  border-radius: 50%;
+  border: 3px solid var(--mono-bg);
+  box-shadow: 0 0 0 3px rgba(26, 163, 151, 0.2);
+  transition: all 0.4s ease;
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0% { box-shadow: 0 0 0 0 rgba(26, 163, 151, 0.6); }
+  70% { box-shadow: 0 0 0 10px rgba(26, 163, 151, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(26, 163, 151, 0); }
+}
+
+.timeline-item.left .timeline-dot {
+  right: -7px;
+}
+
+.timeline-item.right .timeline-dot {
+  left: -7px;
+}
+
+.timeline-content {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s ease;
+}
+
+.timeline-item:hover .timeline-content {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(26, 163, 151, 0.15);
+  border-color: rgba(26, 163, 151, 0.4);
+}
+
+.timeline-item:hover .timeline-dot {
+  background: var(--mono-bg);
+  border-color: rgb(26, 163, 151);
+}
+
+.timeline-item.left .timeline-content {
+  margin-right: 1rem;
+}
+
+.timeline-item.right .timeline-content {
+  margin-left: 1rem;
+}
+
+.timeline-year {
+  display: inline-block;
+  color: rgb(26, 163, 151);
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  color: #1a1a1a;
+}
+
+.timeline-content p {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .founder-card-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .founder-pill {
+    align-self: center;
+  }
+
+  .founder-metrics {
+    justify-content: center;
+  }
+
+  .team-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .team-cards-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  .founder-card {
+    padding: 0 1rem;
+  }
+
+  .timeline-line {
+    left: 20px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    padding: 0 0 0 3rem;
+    text-align: left;
+  }
+
+  .timeline-dot {
+    left: 13px !important;
+  }
+
+  .timeline-item.left .timeline-content {
+    margin-right: 0;
+  }
+
+  .timeline-item.right .timeline-content {
+    margin-left: 0;
+  }
+}
+
+/* Animations */
+.founder-card-content.animate-on-scroll {
+  opacity: 0;
+}
+.founder-card-content.animate-on-scroll.is-visible {
+  animation: founderReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.team-card.animate-on-scroll {
+  opacity: 0;
+}
+.team-card.animate-on-scroll.is-visible {
+  animation: teamReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.team-card:nth-child(1) { animation-delay: 0.1s; }
+.team-card:nth-child(2) { animation-delay: 0.2s; }
+.team-card:nth-child(3) { animation-delay: 0.3s; }
+.team-card:nth-child(4) { animation-delay: 0.4s; }
+.team-card:nth-child(5) { animation-delay: 0.5s; }
+.team-card:nth-child(6) { animation-delay: 0.6s; }
+
+.timeline-item.left.animate-on-scroll .timeline-content,
+.timeline-item.right.animate-on-scroll .timeline-content {
+  opacity: 0;
+}
+
+.timeline-item.left.animate-on-scroll.is-visible .timeline-content {
+  animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.timeline-item.right.animate-on-scroll.is-visible .timeline-content {
+  animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.timeline-item:nth-child(1) .timeline-content { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) .timeline-content { animation-delay: 0.3s; }
+.timeline-item:nth-child(3) .timeline-content { animation-delay: 0.5s; }
+.timeline-item:nth-child(4) .timeline-content { animation-delay: 0.7s; }
+.timeline-item:nth-child(5) .timeline-content { animation-delay: 0.9s; }
+.timeline-item:nth-child(6) .timeline-content { animation-delay: 1.1s; }
+
+@keyframes founderReveal {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes teamReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes badgeFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
