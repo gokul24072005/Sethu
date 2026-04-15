@@ -1120,3 +1120,14 @@ body::before {
     padding: 0.5rem 0;
   }
 }
+
+/* Inner Page Hero Animations */
+.inner-page-hero h1 {
+  opacity: 0;
+  animation: heroFadeUp 0.8s ease-out forwards;
+}
+
+.inner-page-hero p {
+  opacity: 0;
+  animation: heroFadeUp 0.8s ease-out 0.2s forwards;
+}

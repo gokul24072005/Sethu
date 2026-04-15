@@ -1,6 +1,7 @@
 import React from 'react';
 
 import About from '../components/About';
+import FounderTimelineTeam from '../components/FounderTimelineTeam';
 
 function AboutPage() {
   return (
@@ -16,6 +17,7 @@ function AboutPage() {
         </div>
       </section>
       <About />
+      <FounderTimelineTeam />
     </>
   );
 }
