@@ -86,7 +86,12 @@ function Header({ currentPath = '/' }) {
           </button>
           <nav className={`primary-nav ${mobileMenuOpen ? 'mobile-open' : ''}`}>
             {directLinks.slice(0, 2).map((item) => (
-              <a key={item.href} href={item.href} className={isActive(item.href) ? 'active' : ''}>
+              <a 
+                key={item.href} 
+                href={item.href} 
+                className={isActive(item.href) ? 'active' : ''}
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 {item.label}
               </a>
             ))}
@@ -116,7 +121,7 @@ function Header({ currentPath = '/' }) {
                     key={item.href}
                     href={item.href}
                     className={isActive(item.href) ? 'active' : ''}
-                    onClick={closeMenus}
+                    onClick={() => { closeMenus(); setMobileMenuOpen(false); }}
                   >
                     {item.label}
                   </a>
@@ -149,7 +154,7 @@ function Header({ currentPath = '/' }) {
                     key={item.href}
                     href={item.href}
                     className={isActive(item.href) ? 'active' : ''}
-                    onClick={closeMenus}
+                    onClick={() => { closeMenus(); setMobileMenuOpen(false); }}
                   >
                     {item.label}
                   </a>
@@ -158,7 +163,12 @@ function Header({ currentPath = '/' }) {
             </details>
 
             {directLinks.slice(2).map((item) => (
-              <a key={item.href} href={item.href} className={isActive(item.href) ? 'active' : ''}>
+              <a 
+                key={item.href} 
+                href={item.href} 
+                className={isActive(item.href) ? 'active' : ''}
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 {item.label}
               </a>
             ))}
