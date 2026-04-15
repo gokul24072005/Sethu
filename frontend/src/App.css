@@ -776,11 +776,27 @@ body::before {
 
   .nav-content {
     min-height: 74px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    flex: 0 1 auto;
+    max-width: calc(100% - 60px);
   }
 
   .logo-image {
-    height: 58px;
-    max-width: 182px;
+    height: auto;
+    max-height: 58px;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: left center;
   }
 
   .inner-page-hero {
