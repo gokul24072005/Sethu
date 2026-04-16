@@ -77,12 +77,26 @@ function Header({ currentPath = '/' }) {
           <a href="/" className="brand">
             <img src={logo} alt="IZone Technology" className="logo-image" />
           </a>
-          <button 
-            className="mobile-menu-toggle" 
+          <button
+            type="button"
+            className={`mobile-menu-toggle${mobileMenuOpen ? ' open' : ''}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation"
+            aria-expanded={mobileMenuOpen}
           >
-            ☰
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            >
+              <path d="M4 7h16" />
+              <path d="M4 12h16" />
+              <path d="M4 17h16" />
+            </svg>
           </button>
           <nav className={`primary-nav ${mobileMenuOpen ? 'mobile-open' : ''}`}>
             {directLinks.slice(0, 2).map((item) => (
@@ -180,3 +194,4 @@ function Header({ currentPath = '/' }) {
 }
 
 export default Header;
+

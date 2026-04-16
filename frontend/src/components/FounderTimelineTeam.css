@@ -37,6 +37,7 @@
   position: relative;
   max-width: 900px;
   margin: 0 auto;
+  padding: 0 1rem; /* Base: mobile padding */
 }
 
 .founder-card-offset {
@@ -57,6 +58,7 @@
   background: rgba(26, 163, 151, 0.02);
 }
 
+/* Mobile Base: column layout */
 .founder-card-content {
   position: relative;
   z-index: 1;
@@ -65,14 +67,16 @@
   -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 12px;
-  padding: 3rem;
+  padding: 2rem;
   display: flex;
-  gap: 3rem;
+  flex-direction: column;
+  text-align: center;
+  gap: 2rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
 }
 
 .founder-image-col {
-  flex: 0 0 280px;
+  flex: 0 0 auto;
 }
 
 .founder-image-box {
@@ -84,7 +88,10 @@
 
 .founder-image-box img {
   width: 100%;
-  height: 340px;
+  max-width: 400px; /* limits scaling on tablet */
+  margin: 0 auto;
+  height: auto;
+  aspect-ratio: 4/5;
   object-fit: cover;
   display: block;
 }
@@ -121,7 +128,7 @@
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 600;
-  align-self: flex-start;
+  align-self: center;
   margin-bottom: 1rem;
 }
 
@@ -146,6 +153,7 @@
 .founder-metrics {
   display: flex;
   gap: 2rem;
+  justify-content: center;
 }
 
 .metric strong {
@@ -162,7 +170,7 @@
   letter-spacing: 0.05em;
 }
 
-/* Team Grid */
+/* Team Grid - Base Mobile */
 .team-grid-section {
   margin-bottom: 5rem;
 }
@@ -186,8 +194,9 @@
 
 .team-cards-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 1.5rem;
+  padding: 0 1rem;
 }
 
 .team-card {
@@ -252,7 +261,7 @@
   margin: 0;
 }
 
-/* Timeline */
+/* Timeline - Base Mobile */
 .timeline-section {
   padding-bottom: 4rem;
 }
@@ -261,43 +270,34 @@
   position: relative;
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 2rem 1rem;
 }
 
 .timeline-line {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 50%;
+  left: 30px; /* Offset to the left for mobile */
   width: 2px;
   background: var(--mono-line-soft);
-  transform: translateX(-50%);
 }
 
 .timeline-item {
   position: relative;
-  width: 50%;
-  padding: 0 3rem;
+  width: 100%;
+  padding: 0 0 0 3rem; /* Leave space for dot and line */
   margin-bottom: 2.5rem;
+  text-align: left;
 }
 
 .timeline-item:last-child {
   margin-bottom: 0;
 }
 
-.timeline-item.left {
-  left: 0;
-  text-align: right;
-}
-
-.timeline-item.right {
-  left: 50%;
-  text-align: left;
-}
-
 .timeline-dot {
   position: absolute;
   top: 24px;
+  left: -2px; /* Position directly on the line */
   width: 14px;
   height: 14px;
   background: rgb(26, 163, 151);
@@ -306,20 +306,13 @@
   box-shadow: 0 0 0 3px rgba(26, 163, 151, 0.2);
   transition: all 0.4s ease;
   animation: pulseDot 2s infinite;
+  transform: translateX(11px); /* Adjustment to center on the 30px line */
 }
 
 @keyframes pulseDot {
   0% { box-shadow: 0 0 0 0 rgba(26, 163, 151, 0.6); }
   70% { box-shadow: 0 0 0 10px rgba(26, 163, 151, 0); }
   100% { box-shadow: 0 0 0 0 rgba(26, 163, 151, 0); }
-}
-
-.timeline-item.left .timeline-dot {
-  right: -7px;
-}
-
-.timeline-item.right .timeline-dot {
-  left: -7px;
 }
 
 .timeline-content {
@@ -343,14 +336,6 @@
   border-color: rgb(26, 163, 151);
 }
 
-.timeline-item.left .timeline-content {
-  margin-right: 1rem;
-}
-
-.timeline-item.right .timeline-content {
-  margin-left: 1rem;
-}
-
 .timeline-year {
   display: inline-block;
   color: rgb(26, 163, 151);
@@ -372,75 +357,102 @@
   margin: 0;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-  .founder-card-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 2rem;
-  }
-
-  .founder-pill {
-    align-self: center;
-  }
-
-  .founder-metrics {
-    justify-content: center;
-  }
-
+/* TABLET Media Query (min-width: 768px) */
+@media (min-width: 768px) {
   .team-cards-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .team-cards-grid {
-    grid-template-columns: 1fr;
-    padding: 0 1rem;
+    padding: 0; /* Remove mobile padding */
   }
 
   .founder-card {
-    padding: 0 1rem;
+    padding: 0; /* Remove mobile padding */
+  }
+}
+
+/* DESKTOP Media Query (min-width: 992px) */
+@media (min-width: 992px) {
+  .founder-card-content {
+    flex-direction: row;
+    text-align: left;
+    gap: 3rem;
+    padding: 3rem;
+  }
+
+  .founder-pill {
+    align-self: flex-start;
+  }
+
+  .founder-metrics {
+    justify-content: flex-start;
+  }
+
+  .founder-image-col {
+    flex: 0 0 280px;
+  }
+
+  .founder-image-box img {
+    height: 100%;
+    max-height: 340px;
+    aspect-ratio: auto; /* Reset aspect ratio on desktop */
+  }
+
+  .team-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .timeline-container {
+    padding: 2rem 0; /* Reset container padding */
   }
 
   .timeline-line {
-    left: 20px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .timeline-item {
-    width: 100%;
-    left: 0 !important;
-    padding: 0 0 0 3rem;
+    width: 50%;
+    padding: 0 3rem;
+  }
+
+  .timeline-item.left {
+    left: 0;
+    text-align: right;
+  }
+
+  .timeline-item.right {
+    left: 50%;
     text-align: left;
   }
 
-  .timeline-dot {
-    left: 13px !important;
+  .timeline-item .timeline-dot {
+    transform: none;
+  }
+
+  .timeline-item.left .timeline-dot {
+    right: -7px;
+    left: auto;
+  }
+
+  .timeline-item.right .timeline-dot {
+    left: -7px;
+    right: auto;
   }
 
   .timeline-item.left .timeline-content {
-    margin-right: 0;
+    margin-right: 1rem;
   }
 
   .timeline-item.right .timeline-content {
-    margin-left: 0;
+    margin-left: 1rem;
   }
 }
 
 /* Animations */
-.founder-card-content.animate-on-scroll {
-  opacity: 0;
-}
-.founder-card-content.animate-on-scroll.is-visible {
-  animation: founderReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
+.founder-card-content.animate-on-scroll { opacity: 0; }
+.founder-card-content.animate-on-scroll.is-visible { animation: founderReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
-.team-card.animate-on-scroll {
-  opacity: 0;
-}
-.team-card.animate-on-scroll.is-visible {
-  animation: teamReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
+.team-card.animate-on-scroll { opacity: 0; }
+.team-card.animate-on-scroll.is-visible { animation: teamReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
 .team-card:nth-child(1) { animation-delay: 0.1s; }
 .team-card:nth-child(2) { animation-delay: 0.2s; }
@@ -450,10 +462,12 @@
 .team-card:nth-child(6) { animation-delay: 0.6s; }
 
 .timeline-item.left.animate-on-scroll .timeline-content,
-.timeline-item.right.animate-on-scroll .timeline-content {
+.timeline-item.right.animate-on-scroll .timeline-content,
+.timeline-item.animate-on-scroll .timeline-content {
   opacity: 0;
 }
 
+.timeline-item.animate-on-scroll.is-visible .timeline-content,
 .timeline-item.left.animate-on-scroll.is-visible .timeline-content {
   animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -470,47 +484,23 @@
 .timeline-item:nth-child(6) .timeline-content { animation-delay: 1.1s; }
 
 @keyframes founderReveal {
-  from {
-    opacity: 0;
-    transform: translateY(40px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  from { opacity: 0; transform: translateY(40px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @keyframes teamReveal {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes badgeFloat {
