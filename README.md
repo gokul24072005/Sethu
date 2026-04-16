@@ -1,16 +1,33 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Your Company Website
 
-Currently, two official plugins are available:
+A full-stack web application with FastAPI backend and React frontend.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Setup
 
-## React Compiler
+### Backend
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Install dependencies: `pip install -r backend/requirements.txt`
 
-## Expanding the ESLint configuration
+2. Set up PostgreSQL database and update .env
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. Run migrations: `alembic upgrade head`
+
+4. Start server: `uvicorn backend.app.main:app --reload`
+
+### Frontend
+
+1. Change into the frontend folder: `cd YourCompanyWebsite/frontend`
+
+2. Install dependencies: `npm install`
+
+3. Start dev server: `npm start`
+
+   - or run `npm run dev` as an alias for the same command
+
+## Features
+
+- Contact form with backend API
+
+- Responsive design
+
